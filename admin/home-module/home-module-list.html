@@ -1,0 +1,139 @@
+﻿<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<!-- <link rel="Bookmark" href="favicon.ico"> -->
+	<!-- <link rel="Shortcut Icon" href="favicon.ico" /> -->
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="lib/html5.js"></script>
+	<script type="text/javascript" src="lib/respond.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="../static/h-ui/css/H-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="../lib/Hui-iconfont/1.0.9/iconfont.css" />
+	<link rel="stylesheet" type="text/css" href="../static/business/css/style.css" />
+	<link rel="stylesheet" href="../layui/css/layui.css">
+	<!--[if IE 6]>
+	<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+	<script>DD_belatedPNG.fix('*');</script>
+	<![endif]-->
+	<!--/meta 作为公共模版分离出去-->
+
+	<title>管理员列表 - 管理员列表 - h-ui.admin.pro v1.0</title>
+
+</head>
+
+<body class="layui-layout-body">
+	<div class="wap-container">
+		<nav class="breadcrumb" style="background-color:#fff;padding: 0 24px">
+			首页
+			<span class="c-gray en">/</span>
+			管理员管理
+			<span class="c-gray en">/</span>
+			管理员列表
+			<a class="btn btn-success radius f-r" style="line-height:1.6em;margin-top:3px"
+				href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
+		</nav>
+
+		<article class="Hui-admin-content clearfix">
+			<div class="panel">
+				<div class="panel-body">
+					<div class="text-c"> 日期范围：
+						<input type="text" id="search-datetime-start" class="input-text datetimepicker-input"
+							style="width:120px;">
+						-
+						<input type="text" id="search-datetime-end" class="input-text datetimepicker-input"
+							style="width:120px;">
+						<input type="text" class="input-text" style="width:250px" placeholder="输入首页模块名称" id="" name="">
+						<button type="submit" class="btn btn-success" id="" name=""><i class="Hui-iconfont">&#xe665;</i>
+							搜模块名</button>
+					</div>
+				</div>
+			</div>
+			<div class="panel mt-20">
+				<div class="panel-body">
+					<div class="clearfix">
+						<span class="f-l">
+							<a href="javascript:;" onclick="admin_add('添加首页模块','home-module-add.html')"
+								class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加首页模块</a>
+						</span>
+						<span class="f-r">共有数据：<strong id="num">54</strong> 条</span>
+					</div>
+					<div class="mt-20 clearfix">
+						<table id="demo" lay-filter="test"></table>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+	</div>
+
+	<!--_footer 作为公共模版分离出去-->
+	<script type="text/javascript" src="../lib/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../lib/layer/3.1.1/layer.js"></script>
+	<script type="text/javascript" src="../static/h-ui/js/H-ui.min.js"></script>
+	<!--/_footer /作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	<script type="text/javascript" src="../lib/datatables/1.10.15/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="../lib/laypage/1.2/laypage.js"></script>
+	<script type="text/javascript" src="../static/business/js/main.js"></script>
+	<script src="../js/bmj_config.js"></script>
+	<script src="../layui/layui.js"></script>
+	<script src="../js/public.js"></script>
+	<script src="../js/layui_use.js"></script>
+	<script type="text/html" id="barDemo">
+
+		<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+	 </script>
+	<script>
+		layui_use(
+			[
+            [ //表头
+                 {
+                    field: 'thirdNavigationName',
+                    title: '模块导航名称',
+             
+                }, {
+                    field: 'parentId',
+                    title: '父ID',
+               
+                }, {
+                    field: 'createPersonName',
+                    title: '创建人名称',
+                
+                }, {
+                    field: 'createTime',
+                    title: '创建时间',
+                 
+                }, {
+                    field: 'navigationStatus',
+                    title: '状态',
+                  
+                }, {
+                    field: 'lastlogintime',
+                    title: '用户最后登录时间',
+                 
+                }, {
+                    field: 'contentCount',
+                    title: '内容数量',
+                
+                }, {
+                    title:'操作', minWidth:150,toolbar: '#barDemo',field:'id'
+                }
+			]
+		],"/admin/modules/moduleList","/admin/modules/delete","home-module-edit.html?id="
+		)
+		
+	</script>
+	<!--/请在上方写此页面业务相关的脚本-->
+</body>
+
+</html>
